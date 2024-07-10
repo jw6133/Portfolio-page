@@ -22,19 +22,44 @@ const MainSwiper = () => {
                 pagination
             >
                 <SwiperSlide>
-                    <StyledImg src='ProjectThumbnail/chull.jpg' />
+                    <SlideContent>
+                        <StyledImg src='ProjectThumbnail/chull.jpg' />
+                        <Overlay>
+                            <Text>컴퓨터네트워크 - 출석부</Text>
+                        </Overlay>
+                    </SlideContent>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <StyledImg src='ProjectThumbnail/farmfarm.jpg' />
+                    <SlideContent>
+                        <StyledImg src='ProjectThumbnail/farmfarm.jpg' />
+                        <Overlay>
+                            <Text>창업동아리 - 팜팜</Text>
+                        </Overlay>
+                    </SlideContent>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <StyledImg src='ProjectThumbnail/KIST.jpg' />
+                    <SlideContent>
+                        <StyledImg src='ProjectThumbnail/KIST.jpg' />
+                        <Overlay>
+                            <Text>포용성장 전문인력양성사업 - KIST</Text>
+                        </Overlay>
+                    </SlideContent>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <StyledImg src='ProjectThumbnail/lets_go_now.png' />
+                    <SlideContent>
+                        <StyledImg src='ProjectThumbnail/lets_go_now.png' />
+                        <Overlay>
+                            <Text>개인프로젝트 - lets go now</Text>
+                        </Overlay>
+                    </SlideContent>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <StyledImg src='ProjectThumbnail/jrgb.png' />
+                    <SlideContent>
+                        <StyledImg src='ProjectThumbnail/jrgb.png' />
+                        <Overlay>
+                            <Text>종합설계프로젝트 - 유저 파라미터 3D 악세사리 출력 서비스</Text>
+                        </Overlay>
+                    </SlideContent>
                 </SwiperSlide>
             </StyledSwiper>
         </PhotoContainer>
@@ -45,20 +70,52 @@ export default MainSwiper;
 
 const PhotoContainer = styled.div`
     width: 100%;
-    max-width: 1440px;
-    margin: 150px 0 auto;
+    max-width: 1820px;
+    margin: 150px auto;
     overflow: hidden; // Swiper 크기를 초과하는 내용을 숨김
-
 `;
 
 const StyledSwiper = styled(Swiper)`
     height: 400px;
-    margin:0 auto;
+    margin: 0 auto;
+`;
+
+const SlideContent = styled.div`
+    position: relative;
+    width: 100%;
+    height: 100%;
+    &:hover img {
+        opacity: 0.7;
+    }
+    &:hover div {
+        opacity: 1;
+    }
 `;
 
 const StyledImg = styled.img`
     width: 100%;
-    max-width: 1440px;
+    max-width: 1820px;
     height: 400px;
     object-fit: cover; // 이미지가 고정된 크기에 맞게 잘리거나 확대되도록 설정
+    transition: opacity 0.3s ease-in-out;
+`;
+
+const Overlay = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+`;
+
+const Text = styled.div`
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
 `;

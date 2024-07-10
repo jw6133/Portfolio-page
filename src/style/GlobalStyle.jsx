@@ -72,6 +72,7 @@ body,html{
 	/* &.no-scroll{
 		overflow-y: hidden ;
 	} */
+
 }
 `
 
