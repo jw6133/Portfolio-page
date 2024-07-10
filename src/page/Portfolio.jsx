@@ -3,6 +3,7 @@ import Head from '../components/Head';
 import styled from 'styled-components';
 import MainSwiper from '../components/MainSwiper';
 import PortfolioCell from '../components/PortfolioCell';
+import Foot from '../components/Foot';
 
 const Portfolio = () => {
     return (
@@ -14,9 +15,10 @@ const Portfolio = () => {
             <CellWrapper>
                 <PortfolioCell/>
             </CellWrapper>
-            <FootWrapper>
+            {/* <FootWrapper>
                 footer
-            </FootWrapper>
+            </FootWrapper> */}
+            <Foot/>
         </PortfolioWrapper>
         </>
     );
@@ -31,11 +33,11 @@ const PortfolioWrapper=styled.div`
 const CellWrapper = styled.div`
 
 `
-const FootWrapper=styled.div`
-    position:relative;
-    bottom:0;
-    background-color:black;
-    color:white;
-    width:100%;
-    height:200px;
-`
+// const FootWrapper=styled.div`
+//     position:relative;
+//     bottom:0;
+//     background-color:black;
+//     color:white;
+//     width:100%;
+//     height:200px;
+// `

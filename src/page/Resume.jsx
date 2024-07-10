@@ -1,11 +1,22 @@
 import React from 'react';
+import Head from '../components/Head';
+import styled from 'styled-components';
+import Foot from '../components/Foot';
 
 const Resume = () => {
     return (
-        <div>
+        <>
+        <Head/>
+        <ResumeWrapper>
             Resume
-        </div>
+        </ResumeWrapper>
+        <Foot/>
+        </>
     );
 };
 
 export default Resume;
+
+const ResumeWrapper=styled.div`
+    margin-top:150px;
+`

@@ -2,6 +2,13 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+//icon
+import { LuClipboardList } from "react-icons/lu";
+import { FaRegAddressBook } from "react-icons/fa";
+import { IoDocumentTextOutline } from "react-icons/io5";
+import { RiPresentationLine } from "react-icons/ri";
+import ToggleTheme from './ToggleTheme';
+
 const SidebarContent = () => {
 
     const navigate=useNavigate();
@@ -21,18 +28,24 @@ const SidebarContent = () => {
 
     return (
         <SideContentWrapper>
-            <img src='photo/main_human_face.jpg'/>
-            <span className='name'>백지웅</span>
-            <span className='status'>가톨릭대학교 컴퓨터정보공학부</span>
+            <div className='sideHead'>
+                <img className='face-photo' src='photo/main_human_face.jpg' alt='내 얼굴'/>
+                <span className='name'>백지웅</span>
+                <span className='status'>가톨릭대학교 컴퓨터정보공학부</span>
+            </div>
 
             <div className='sideMenu'>
                 <ul>
-                    <li><img src='icon/clipboard.png'/> 포트폴리오 리스트</li>
-                    <li><img src='icon/books.png'/> 세부정보</li>
-                    <li><img src='icon/file-text.png'/> 이력서</li>
-                    <li onClick={goToResume}><img src='icon/inbox.png'/> 주요 발표 자료</li>
+                    <li onClick={goToPortfolio}><span className='icon40'><LuClipboardList/></span> <span className='sideText'>포트폴리오 리스트</span></li>
+                    <li onClick={goToInfo}><span className='icon40'><FaRegAddressBook/></span> <span className='sideText'>세부정보</span></li>
+                    <li onClick={goToResume}><span className='icon40'><IoDocumentTextOutline/></span> <span className='sideText'>이력서</span></li>
+                    <li onClick={goToPPT}><span className='icon40'><RiPresentationLine/></span> <span className='sideText'>주요 발표 자료</span></li>
                 </ul>
             </div>
+            <div className='slideBtn'>
+                <ToggleTheme/>
+            </div>
+            
         </SideContentWrapper>
     );
 };
@@ -43,28 +56,64 @@ const SideContentWrapper = styled.div`
     position:relative;
     color:white;
     background-color:#5e5e5e;
-    img{
+    .sideHead{
         position:relative;
-        width:150px;
-        height:150px;
-        border-radius:50%;
-        margin-left:40px;
-        margin-top:40px;
-    }
-    .name{
         display:flex;
-        position:absolute;
-        right:20%;
-        top:15%;
-        font-size:48px;
-    }
-    .status{
-        display:flex;
-        position:absolute;
-        right:10%;
-        top:60%;
+        .face-photo{
+            display:flex;
+            position:relative;
+            width:150px;
+            height:150px;
+            border-radius:50%;
+            margin-left:40px;
+            margin-top:40px;
+        }
+        .name{
+            display:inline-block;
+            position:absolute;
+            width:50%;
+            right:-1%;
+            top:35%;
+            font-size:48px;
+        }
+        .status{
+            display:flex;
+            position:absolute;
+            right:10%;
+            top:75%;
+        }
+        margin-bottom:8%;
     }
     .sideMenu{
+        display:flex;
         color:white;
+        width:100%;
+        ul{
+            margin:10% auto 0;
+            display:flex;
+            gap : 30px;
+            flex-direction:column;
+            li{
+                display:flex;
+                gap:50px;
+                height:40px;
+                line-height:40px;
+                &:hover{
+                        color:yellow;
+                    }
+                .sideText{
+                    font-size:24px;
+                }
+                .icon40{
+                    font-size:40px;
+                }
+            }
+        }
+    }
+    .slideBtn{
+        display:flex;
+        position: absolute;
+        bottom:20%;
+        right:-10%;
     }
 `

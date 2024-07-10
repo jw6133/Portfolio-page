@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Portfolio from './page/Portfolio';
 
@@ -13,8 +12,6 @@ function App() {
   return (
     <>
     <GlobalStyle/>
-    <Portfolio/>
-
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Portfolio/>}/>
