@@ -19,7 +19,6 @@ const MainSwiper = () => {
                 loop // 무한반복
                 modules={[Navigation, Pagination]} // 모듈 가져오기
                 navigation // 실제 적용
-                pagination
             >
                 <SwiperSlide>
                     <SlideContent>
@@ -71,17 +70,18 @@ export default MainSwiper;
 const PhotoContainer = styled.div`
     width: 100%;
     max-width: 1820px;
-    margin: 150px auto;
+    margin: 20px auto;
     overflow: hidden; // Swiper 크기를 초과하는 내용을 숨김
 `;
 
 const StyledSwiper = styled(Swiper)`
-    height: 400px;
+    height: 480px;
     margin: 0 auto;
 `;
 
 const SlideContent = styled.div`
     position: relative;
+    top:0;
     width: 100%;
     height: 100%;
     &:hover img {
@@ -95,7 +95,7 @@ const SlideContent = styled.div`
 const StyledImg = styled.img`
     width: 100%;
     max-width: 1820px;
-    height: 400px;
+    height: 480px;
     object-fit: cover; // 이미지가 고정된 크기에 맞게 잘리거나 확대되도록 설정
     transition: opacity 0.3s ease-in-out;
 `;

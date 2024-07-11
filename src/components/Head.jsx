@@ -28,12 +28,14 @@ const HeadWrapper = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    height: 100px;
+    height: 60px;
     background-color: gray;
     width: 100%;
     z-index: 3;
     .mainLogo{
+        height:100%;
         font-size:48px;
+        line-height:60px;
         font-weight:bold;
         &:hover{
             color:yellow;

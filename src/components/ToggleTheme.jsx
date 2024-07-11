@@ -22,26 +22,26 @@ export default ToggleTheme;
 
 const ToggleSwitch = styled.label`
   position: absolute;
-  top: 150px;
-  right: 100px;
+  top: 170px;
+  right: 200px;
   display: inline-block;
-  width: 400px;
-  height: 86px;
+  width: 200px;
+  height: 64px;
   
   .light {
     position: absolute;
-    top: 15px;
+    top: 12px;
     left: 20px;
     z-index: 3;
-    font-size: 52px;
+    font-size: 36px;
     color: black;
   }
   .dark {
     position: absolute;
-    top: 15px;
+    top: 12px;
     right: 20px;
     z-index: 3;
-    font-size: 52px;
+    font-size: 36px;
     color:white;
   }
 `;
@@ -60,10 +60,10 @@ const ToggleSlider = styled.span`
   &:before {
     position: absolute;
     content:  "";
-    height: 66px;
-    width: 190px;
-    left: 10px;
-    bottom: 10px;
+    height: 56px;
+    width: 56px;
+    left: 5px;
+    bottom: 4px;
     background-color: ${({ isActive }) => (isActive ? "black" : "white")};
     -webkit-transition: .4s;
     transition: .4s;
@@ -86,6 +86,6 @@ const CheckBox = styled.input`
   &:checked + ${ToggleSlider}:before {
     -webkit-transform: translateX(189px);
     -ms-transform: translateX(189px);
-    transform: translateX(189px);
+    transform: translateX(135px);
   }
 `;

@@ -10,7 +10,6 @@ const Portfolio = () => {
         <>
         <PortfolioWrapper>
             <Head/>
-            portfolio
             <MainSwiper/>
             <CellWrapper>
                 <PortfolioCell/>

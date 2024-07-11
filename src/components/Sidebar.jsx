@@ -45,6 +45,7 @@ const Sidebar = ({ width, children }) => {
           <div>
             <i className="line01"></i>
             <i className="line02"></i>
+            <i className="line03"></i>
           </div>
         </SideButtonWrapper>
         <div className="content">{children}</div>
@@ -93,7 +94,7 @@ const SideButtonWrapper = styled.div`
 
   div {
     width: 36px;
-    height: 13px;
+    height: 24px; /* 전체 높이 */
     position: relative;
 
     i {
@@ -103,24 +104,19 @@ const SideButtonWrapper = styled.div`
       position: absolute;
       transition: 500ms;
     }
+
     .line01 {
       top: ${({ isOpen }) => (isOpen ? '50%' : '0%')};
       transform: ${({ isOpen }) => (isOpen ? 'translateY(-50%) rotate(45deg)' : 'none')};
     }
     .line02 {
+      top: 50%;
+      opacity: ${({ isOpen }) => (isOpen ? '0' : '1')}; /* 클릭 시 중간 선 숨기기 */
+      transform: ${({ isOpen }) => (isOpen ? 'translateX(-50%)' : 'none')};
+    }
+    .line03 {
       top: ${({ isOpen }) => (isOpen ? '50%' : '100%')};
       transform: ${({ isOpen }) => (isOpen ? 'translateY(-50%) rotate(-45deg)' : 'none')};
     }
-  }
-
-  &:before {
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.3);
-    display: inline-block;
-    position: absolute;
-    left: 0px;
-    top: 50%;
-    transform: translateY(-50%);
   }
 `;

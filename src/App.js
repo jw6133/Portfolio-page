@@ -7,6 +7,7 @@ import Information from './page/Information';
 import Presentation from './page/Presentation';
 import Resume from './page/Resume';
 import NotFound from './page/NotFound';
+import Portfolio1 from './page/portfolio-page/Portfolio1';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/info' element={<Information/>}/>
         <Route path='/resume' element={<Resume/>}/>
         <Route path='/ppt' element={<Presentation/>}/>
+        <Route path='/portfolio1' element={<Portfolio1/>}/>
 
       </Routes>
     </BrowserRouter>

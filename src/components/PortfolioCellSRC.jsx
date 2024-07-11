@@ -1,61 +1,102 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
-function PortfolioCellSRC({ portfolioData }) {
+function PortfolioCellSRC({ portfolioData, index }) {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate(`/Portfolio${index+1}`);
+    };
+
     return (
-        <CellInfoWrapper>
+        <CellWrapper onClick={handleClick}>
             <img src={portfolioData.src} alt={portfolioData.alt} />
-            <div className="portfolioText">
-                <span className="portfolioTitle">{portfolioData.headText}</span>
-                <span className="mainText">{portfolioData.bodyText}</span>
-            </div>
-        </CellInfoWrapper>
+            <TextOverlay className="text-overlay">
+                <span className="category">{portfolioData.category}</span>
+                <span className="title">{portfolioData.headText}</span>
+                <span className="description">{portfolioData.bodyText}</span>
+            </TextOverlay>
+        </CellWrapper>
     );
 }
 
 export default PortfolioCellSRC;
 
-const CellInfoWrapper = styled.div`
-    width: 380px;
-    height: 480px;
-    border: solid 1px black;
+const CellWrapper = styled.div`
+    width: 300px;
+    height: 400px;
     overflow: hidden;
-    transition: transform 0.3s ease; 
+    position: relative;
+    transition: transform 0.3s ease;
+    -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
 
     &:hover {
-        transform: scale(1.1); 
+        transform: scale(1.1);
+    }
+
+    &:hover .text-overlay {
+        opacity: 1;
     }
 
     img {
         width: 100%;
-        height: 70%;
+        height: 100%;
         object-fit: cover;
     }
 
-    .portfolioText {
-        height: 100%;
-        width:90%;
-        margin-left:5%;
+
+`;
+
+const TextOverlay = styled.div`
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .category {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        background-color: white;
+        color: black;
+        font-size: 14px;
+        padding: 2px 5px;
+    }
+
+    .title {
+        font-weight: bold;
+        font-size: 18px;
         text-align: center;
-        font-size: 20px;
-        word-break: keep-all;
+        border-bottom: 1px solid white;
+        width: 80%;
+        padding: 10px 0;
+    }
 
-        .portfolioTitle {
-            display: block;
-            margin-top: 5px;
-            text-align:left;
-            font-weight: bold;
-            font-size: 24px;
-        }
+    .description {
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.2;
+        margin-top: 5%;
+        padding: 0 10px;
+        text-align: center;
+    }
 
-        .mainText {
-            margin-top: 5px;
-            display: -webkit-box;
-            word-wrap: break-word;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+    &:hover {
+        opacity: 1;
     }
 `;
