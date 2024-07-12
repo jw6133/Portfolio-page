@@ -15,8 +15,14 @@ function PortfolioCell() {
             bodyText: '학원에서 진행한 개인프로젝트로, 외출 전에 알고 나가면 편한 정보들을 모바일 화면에서 한 눈에 보고싶어 시작하게 된 프로젝트. 버스/지하철/날씨/옷차림에 대한 정보를 API를 통해 알려준다.', alt: 'Let\'s Go Now' },
         { src: 'ProjectThumbnail/jrgb.png', category : '프로젝트', headText: '유저 커스텀 3D 악세사리 서비스',
             bodyText: '교내 강의인 종합설계프로젝트 과목에서 진행한 프로젝트로, 유저가 사진/감정/성별 등의 파라미터를 입력하고 버튼을 누르면, 그 데이터를 토대로 닮은 동물과 그 동물+파라미터를 반영한 3D 객체를 생성하고 3D프린터로 프린트해주는 서비스.', alt: 'JRGB' },
-        { src: 'ProjectThumbnail/netflix_clone.png', category: '토이프로젝트', headText : 'Netflix 클론코딩',
-            bodyText : '학원에서 진행한 클론코딩 (넷플릭스)',alt: 'netflix'}
+        { src: 'ProjectThumbnail/netflix_clone.png', category: '클론코딩', headText : 'Netflix 클론코딩',
+            bodyText : '학원에서 진행한 클론코딩 (넷플릭스)',alt: 'netflix'},
+        { src: 'ProjectThumbnail/my_shop.png', category: '클론코딩', headText : 'Netflix 클론코딩',
+            bodyText : '학원에서 진행한 클론코딩 (쇼핑몰)',alt: 'my_shop'},
+        { src: 'ProjectThumbnail/genesis.png', category: '클론코딩', headText : '쇼핑몰 클론코딩',
+            bodyText : '학원에서 진행한 클론코딩 (넷플릭스)',alt: 'genesis'},
+        { src: 'ProjectThumbnail/gdsc_hackaton.png', category: '해커톤', headText : 'GDSC 세미해커톤',
+            bodyText : 'GDSC에서 진행한 세미해커톤으로, 최종 등수 3등을 달성한 알고리즘 코드 개선 프로젝트',alt: 'GDSC'},
     ];
 
     return (
