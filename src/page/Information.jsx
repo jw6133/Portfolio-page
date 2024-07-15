@@ -8,7 +8,7 @@ const Information = () => {
         <>
         <Head/>
         <InformationWrapper>
-            Infomation
+            
         </InformationWrapper>
         <Foot/>
         </>
@@ -19,5 +19,7 @@ const Information = () => {
 export default Information;
 
 const InformationWrapper = styled.div`
+    width:100%;
+    height:100%;
     margin-top:150px;
 `
