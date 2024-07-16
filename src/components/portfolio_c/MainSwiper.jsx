@@ -6,7 +6,7 @@ import 'swiper/css'; // 스와이퍼 기본 css 적용 임포트
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css/navigation'; // 스와이퍼 좌우버튼 css
 import 'swiper/css/pagination'; // 스와이퍼 도트리스트 css
-import '../style/swiperCustomCss.css';
+import '../../style/swiperCustomCss.css';
 import styled from 'styled-components';
 
 const MainSwiper = () => {

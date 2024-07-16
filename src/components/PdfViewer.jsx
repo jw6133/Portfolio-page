@@ -98,8 +98,8 @@ export default PdfViewer;
 const Container = styled.div`
     width: 70%;
     height: 70%;
-    margin-bottom: 3%;
-    margin-left:10%;
+    margin: 3% auto 3% auto;
+    overflow:hidden;
     select {
         position: relative;
         left: 3%;

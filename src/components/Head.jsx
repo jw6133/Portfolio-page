@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Sidebar from './Sidebar';
-import SidebarContent from './SidebarContent';
+import Sidebar from './sidebar_c/Sidebar';
+import SidebarContent from './sidebar_c/SidebarContent';
 import { useNavigate } from 'react-router-dom';
 
 const Head = () => {
