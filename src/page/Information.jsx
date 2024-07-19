@@ -17,7 +17,15 @@ const Information = () => {
       ];
 
       const awardData = [
-        {'수상일자' : '2021.05','수상명':'아이디어 아이템전','내용':'교내 아이디어 경진대회','기관':'가톨릭대학교'}
+        {'수상일자' : '2021.05','수상명':'아이디어 아이템전','내용':'교내 아이디어 경진대회','기관':'가톨릭대학교'},
+        {'수상일자' : '2024.07','수상명':'GDSC CUK Semi-hackaton 3rd','내용':'GDSC CUK에서 진행한 세미 해커톤으로, SDGs를 구글 기술을 활용하여 해결하는 방법을 찾는 주제로 진행.','기관':'GDSC CUK'}
+      ];
+
+      const certificateData = [
+        {'취득일자':'2022.03.04','자격증 및 면허':'컴퓨터활용능력','급수 및 점수':'1급','취득번호':'22-K9-018584','발행기관':'대한상공회의소'},
+        {'취득일자':'2023.06.09','자격증 및 면허':'정보처리기사','급수 및 점수':'','취득번호':'23201010962F','발행기관':'한국산업인력공단'},
+        {'취득일자':'2023.05.28','자격증 및 면허':'TOEIC','급수 및 점수':'825','취득번호':'138226','발행기관':'ETS'},
+        {'취득일자':'2021.02.10','자격증 및 면허':'자동차운전면허증','급수 및 점수':'2종 보통','취득번호':'11-21-804581-50','발행기관':'서울특별시경찰청'}
       ]
     return (
         <>
@@ -27,6 +35,10 @@ const Information = () => {
             <Table data={schoolData}/>
             <span className='sectionTitle'>사회경험</span>
             <Table data={socialData}/>
+            <span className='sectionTitle'>수상경험</span>
+            <Table data={awardData}/>
+            <span className='sectionTitle'>자격사항 및 어학능력</span>
+            <Table data={certificateData}/>
         </InformationWrapper>
         <Foot/>
         </>

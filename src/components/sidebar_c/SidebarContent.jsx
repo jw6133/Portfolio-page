@@ -7,6 +7,7 @@ import { LuClipboardList } from "react-icons/lu";
 import { FaRegAddressBook } from "react-icons/fa";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { RiPresentationLine } from "react-icons/ri";
+import { GrUserAdmin } from "react-icons/gr";
 import ToggleTheme from './ToggleTheme';
 
 const SidebarContent = () => {
@@ -24,6 +25,9 @@ const SidebarContent = () => {
     }
     const goToResume=()=>{
         navigate('/resume');
+    }
+    const goToAdmin=()=>{
+        navigate('/admin');
     }
 
     return (
@@ -45,6 +49,7 @@ const SidebarContent = () => {
             <div className='slideBtn'>
                 <ToggleTheme/>
             </div>
+            <button className='admin' onClick={goToAdmin}><span className='icon30'><GrUserAdmin/></span></button>
             
         </SideContentWrapper>
     );
@@ -115,5 +120,18 @@ const SideContentWrapper = styled.div`
         position: absolute;
         bottom:20%;
         right:-10%;
+    }
+    .admin{
+        color:white;
+        display:flex;
+        position:absolute;
+        bottom:-30%;
+        right:5%;
+        .icon30{
+            font-size:30px;
+        }
+        &:hover{
+            color:yellow;
+        }
     }
 `

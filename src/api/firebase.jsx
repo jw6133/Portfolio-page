@@ -1,85 +1,107 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { GoogleAuthProvider, getAuth, onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
+import { getFirestore, collection, addDoc, getDocs, query, where } from "firebase/firestore";
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
+import { v4 as uuid } from 'uuid';
 
-const firebaseConfig={
-    apiKey : process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain : process.env.REACT_APP_FIREBASE_API_AUTH_DOMAIN,
-    projectId : process.env.REACT_APP_FIREBASE_PROJECT_ID,
-    databaseURL : process.env.REACT_APP_FIREBASE_DB_URL
-}
+const firebaseConfig = {
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_API_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    databaseURL: process.env.REACT_APP_FIREBASE_DB_URL,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
+    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const provider = new GoogleAuthProvider();
-const auth = getAuth();
-const database =getDatabase(app);
+const auth = getAuth(app);
+const firestore = getFirestore(app);
+const storage = getStorage(app);
 
-//자동 로그인 방지
+// 자동 로그인 방지
 provider.setCustomParameters({
-    prompt : 'select_account'
-})
+    prompt: 'select_account'
+});
 
-//구글 로그인 function
-export async function googleLogin(){
-    try{
-        const result = await signInWithPopup(auth,provider);
+// 구글 로그인 function
+export async function googleLogin() {
+    try {
+        const result = await signInWithPopup(auth, provider);
         const user = result.user;
         console.log(user);
-
         return user;
-    }catch(error){
-        console.error(error)
-    }
-}
-//구글 로그아웃 function
-export async function googleLogOut(){
-    try{
-        await signOut(auth);// 기존의 정보들을 초기화하는 hook
-    }catch(error){
+    } catch (error) {
         console.error(error);
     }
 }
-//로그인 시 새로고침해도 로그인을 계속 유지
-export function onUserState(callback){
-    onAuthStateChanged(auth,async(user)=>{
-        if(user){
-            try{
-                // callback(user)
+
+// 구글 로그아웃 function
+export async function googleLogOut() {
+    try {
+        await signOut(auth);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+// 로그인 시 새로고침해도 로그인을 계속 유지
+export function onUserState(callback) {
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            try {
                 const updateUser = await adminUser(user);
                 callback(updateUser);
-            }catch(error){
+            } catch (error) {
                 console.error(error);
             }
-        }else{
+        } else {
             callback(null);
         }
-    })
-    //onAuthStateChanged = 사용자 인증 상태에 변화를 체크하는 hook(로그인, 로그아웃)
+    });
 }
-//admin user 구분
-async function adminUser(user){
-    try{
-        const snapshot = await get(ref(database,'admin'));
-        //snapshot : firebase안에 database안에 admin폴더를 검색하라고 명령
-        if(snapshot.exists()){
-            //snapshot.exists() : snapshot안에 데이터가 있음을 의미
-            const admins = snapshot.val(); //admin폴더 내 데이터들을 검색
-            const isAdmin = admins.includes(user.email);
-            //검색된 admins에 현재 로그인된 사용자의 이메일과 일치하는 이메일이 있는지 확인
-            return {...user,isAdmin};
-        }
-        return user
-    }catch(error){
+
+// admin user 구분
+async function adminUser(user) {
+    try {
+        const q = query(collection(firestore, "admin"), where("email", "==", user.email));
+        const querySnapshot = await getDocs(q);
+        const isAdmin = !querySnapshot.empty;
+        return { ...user, isAdmin };
+    } catch (error) {
         console.error(error);
     }
 }
-//포트폴리오 정보(사진, 제목, 글) 업로드
-export async function addPortfolioData(photo,title,text){
-    const id = uuid()
-    return set(ref(database, `portfolio_data/${id}`),{
-        ...product,
-        photo,
-        title,
-        text
-    })
+
+// 포트폴리오 정보(사진, 제목, 글) 업로드
+export async function addPortfolioData(title, tag, photo, text1, table, text2) {
+    try {
+        await addDoc(collection(firestore, "portfolio_data"), {
+            title,
+            tag,
+            photo,
+            text1,
+            table,
+            text2
+        });
+    } catch (e) {
+        console.error("Error adding document: ", e);
+    }
+}
+
+// 파일 업로드 function
+export async function uploadFile(file) {
+    const storageReference = storageRef(storage, `images/${uuid()}`);
+    await uploadBytes(storageReference, file);
+    return getDownloadURL(storageReference);
+}
+
+// 포트폴리오 정보 가져오기
+export async function getPortfolioData() {
+    const querySnapshot = await getDocs(collection(firestore, "portfolio_data"));
+    const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    return data;
 }

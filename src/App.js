@@ -8,6 +8,7 @@ import Presentation from './page/Presentation';
 import Resume from './page/Resume';
 import NotFound from './page/NotFound';
 import Portfolio1 from './page/portfolio-page/Portfolio1';
+import AdminPage from './page/AdminPage';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
         <Route path='/resume' element={<Resume/>}/>
         <Route path='/ppt' element={<Presentation/>}/>
         <Route path='/portfolio1' element={<Portfolio1/>}/>
-
+        <Route path='/admin' element={<AdminPage/>}/>
       </Routes>
     </BrowserRouter>
 
