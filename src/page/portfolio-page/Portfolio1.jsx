@@ -20,7 +20,12 @@ const Portfolio1 = () => {
     }, []);
 
     if (!firebaseData) {
-        return <img src='photo/loading.gif'/>;
+        return(
+        <div>
+            <img src='photo/loading.gif'/>
+            <span>loading... please wait</span>
+        </div>);
+
     }
 
     return (
