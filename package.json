@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/preset-env": "^7.24.8",
+    "@babel/preset-react": "^7.24.7",
+    "@craco/craco": "^7.1.0",
+    "@linaria/babel-preset": "^5.0.4",
+    "@linaria/react": "^6.2.1",
+    "@linaria/webpack4-loader": "^5.0.4",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -25,9 +31,9 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -49,7 +55,6 @@
     ]
   },
   "resolutions": {
-      "pdfjs-dist": "3.11.174"
+    "pdfjs-dist": "3.11.174"
   }
-  
 }

@@ -1,8 +1,9 @@
 import React from 'react';
 import Head from '../components/Head';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import Foot from '../components/Foot';
 import Table from '../components/information_c/Table';
+import { styled } from "@linaria/react";
 
 const Information = () => {
     const schoolData = [
@@ -48,16 +49,31 @@ const Information = () => {
 
 export default Information;
 
-const InformationWrapper = styled.div`
-    width:100%;
-    height:100%;
-    margin-top:6%;
-    .sectionTitle{
-        display:flex;
-        position: relative;
-        left:10%;
-        margin-bottom:3%;
-        font-size:48px;
-        font-weight:bold;
-    }
+// const InformationWrapper = styled.div`
+//     width:100%;
+//     height:100%;
+//     margin-top:6%;
+//     .sectionTitle{
+//         display:flex;
+//         position: relative;
+//         left:10%;
+//         margin-bottom:3%;
+//         font-size:48px;
+//         font-weight:bold;
+//     }
+// `
+
+//linaria
+export const InformationWrapper=styled.div`
+  width:100%;
+  height:100%;
+  margin-top:6%;
+  .sectionTitle{
+    display:flex;
+    position: relative;
+    left:10%;
+    margin-bottom:3%;
+    font-size:48px;
+    font-weight:bold;
+  }
 `
