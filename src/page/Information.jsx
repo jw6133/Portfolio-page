@@ -63,17 +63,17 @@ export default Information;
 //     }
 // `
 
-//linaria
-export const InformationWrapper=styled.div`
-  width:100%;
-  height:100%;
-  margin-top:6%;
-  .sectionTitle{
-    display:flex;
+// linaria
+export const InformationWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  margin-top: 6%;
+  .sectionTitle {
+    display: flex;
     position: relative;
-    left:10%;
-    margin-bottom:3%;
-    font-size:48px;
-    font-weight:bold;
+    left: 10%;
+    margin-bottom: 3%;
+    font-size: 48px;
+    font-weight: bold;
   }
-`
+`;

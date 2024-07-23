@@ -1,24 +1,34 @@
-const { getLoader, loaderByName } = require('@craco/craco');
+const path = require('path');
 
 module.exports = {
   webpack: {
     configure: (webpackConfig) => {
-      const linariaLoader = {
-        loader: require.resolve('@linaria/webpack4-loader'),
-        options: {
-          sourceMap: process.env.NODE_ENV !== 'production',
-          babelOptions: {
-            presets: ['@babel/preset-react'],
+      webpackConfig.module.rules.push({
+        test: /\.(js|jsx|ts|tsx)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                '@babel/preset-env',
+                '@babel/preset-react',
+                '@babel/preset-typescript',
+                '@linaria',
+              ],
+            },
           },
-        },
-      };
-
-      const cssLoader = getLoader(webpackConfig, loaderByName('css-loader'));
-      if (!cssLoader.isFound) {
-        throw new Error('Cannot find CSS loader');
-      }
-
-      cssLoader.match.loader = linariaLoader;
+          {
+            loader: '@wyw-in-js/webpack-loader', //핵심
+            options: {
+              sourceMap: process.env.NODE_ENV !== 'production',
+              babelOptions: {
+                presets: ['@babel/preset-env', '@babel/preset-react'],
+              },
+            },
+          },
+        ],
+      });
 
       return webpackConfig;
     },
