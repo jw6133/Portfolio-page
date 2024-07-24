@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import { styled } from "@linaria/react";
 import { addPortfolioData, onUserState, googleLogin, googleLogOut, uploadFile } from '../api/firebase';
 import Head from '../components/Head';
 

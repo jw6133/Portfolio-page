@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from '../components/Head';
-// import styled from 'styled-components';
+// import { styled } from "@linaria/react";
 import Foot from '../components/Foot';
 import Table from '../components/information_c/Table';
 import { styled } from "@linaria/react";
@@ -63,7 +63,7 @@ export default Information;
 //     }
 // `
 
-// linaria-feature
+// linaria-feature2
 export const InformationWrapper = styled.div`
   width: 100%;
   height: 100%;
