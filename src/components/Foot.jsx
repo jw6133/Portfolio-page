@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-
+import { styled } from "@linaria/react";
 // icon
 import { SiGithub } from "react-icons/si";
 import { FaInstagram } from "react-icons/fa6";
@@ -22,7 +21,7 @@ const Foot = () => {
 
 export default Foot;
 
-const Footer = styled.div`
+export const Footer = styled.div`
     position: relative;
     bottom: 0;
     background-color: black;
