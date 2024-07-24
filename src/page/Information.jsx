@@ -63,7 +63,7 @@ export default Information;
 //     }
 // `
 
-// linaria-feature
+// linaria-feature2
 export const InformationWrapper = styled.div`
   width: 100%;
   height: 100%;
