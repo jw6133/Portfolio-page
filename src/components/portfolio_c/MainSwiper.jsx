@@ -7,7 +7,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css/navigation'; // 스와이퍼 좌우버튼 css
 import 'swiper/css/pagination'; // 스와이퍼 도트리스트 css
 import '../../style/swiperCustomCss.css';
-import styled from 'styled-components';
+import { styled } from "@linaria/react";
 
 const MainSwiper = () => {
     return (

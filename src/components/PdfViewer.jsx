@@ -4,7 +4,7 @@ import 'swiper/css';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import styled from 'styled-components';
+import { styled } from "@linaria/react";
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.entry';
 

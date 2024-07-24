@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import { styled } from "@linaria/react";
 
 function ToggleTheme() {
     const [isActive, setIsActive] = useState(true);

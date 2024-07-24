@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from "@linaria/react";
 import Sidebar from './sidebar_c/Sidebar';
 import SidebarContent from './sidebar_c/SidebarContent';
 import { useNavigate } from 'react-router-dom';
