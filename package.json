@@ -65,5 +65,8 @@
   },
   "resolutions": {
     "pdfjs-dist": "3.11.174"
+  },
+  "devDependencies": {
+    "@types/uuid": "^10.0.0"
   }
 }
